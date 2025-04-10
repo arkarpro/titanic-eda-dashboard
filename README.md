@@ -35,3 +35,7 @@ git clone https://github.com/your-username/titanic-eda.git
 cd titanic-eda
 pip install -r requirements.txt
 streamlit run titanic-eda-dashboard.py
+
+## 🙌 Acknowledgments
+Dataset sourced from the Kaggle Titanic Dataset.
+This project was created for educational purposes to practice Python, Streamlit, and data visualization techniques.

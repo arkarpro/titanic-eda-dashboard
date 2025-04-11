@@ -10,6 +10,12 @@ st.markdown(
     "<h1 style='color:blue; font-size: 36px; text-align: left;'>Titanic EDA Dashboard</h1>", 
     unsafe_allow_html=True
 )
+st.info("Titanic EDA Dashboard သည် သင်ကြားမှုဆိုင်ရာ အလိုက် လေ့ကျင့်သောဖိုင်ဖြစ်ပါသဖြင့် အခြေခံသင်ကြားမှုများကို လေ့လာသင်ကြားခြင်းကို လက်တွေ့မျှဝေသော လေ့ကျင့်ခန်းတစ်ခုသာဖြစ်ပါသည်။")
+st.markdown("""
+    - **ယခုလေ့ကျင့်ခန်းမှာ** ခရီးသည်များ၏ *အမျိုးအစား*၊ *အသက်အုပ်စု* နှင့် *အသက်ရှင်/သေဆုံးမှု* အခြေအနေများကို သုံးသပ်သွားမှာ ဖြစ်ပါတယ်။
+    - **မှတ်ချက်။ ။** ယခုလေ့ကျင့်ခန်းကို သင်ကြားမှု အခန်းအလိုက် တဆင့်စီ update ပြုလုပ်သွားမည်ဖြစ်ပါသည်။
+""")
+
 st.info("Titanic သင်္ဘောကြီး ခရီးသည်အချက်အလက်များ")
 st.markdown("""
     - ခရီးသည် စုစုပေါင်း **၈၉၁** ဦး ပါဝင်သည်။
@@ -19,12 +25,9 @@ st.markdown("""
         - စီးနင်းလိုက်ပါလာသည့် အတန်း (P class)
         - ကျား/မ
         - ရှင်သန်/သေဆုံးမှုများ
-    ကို စုစည်းသုံးသပ်သွားမှာ ဖြစ်ပါတယ်။
+    ကို စုစည်းသုံးသပ်သွားကြမှာ ဖြစ်ပါတယ်။
 """)
-st.info("Titanic ခရီးသည်များအနက် ၈၉၁ ဦး ပါဝင်ပြီး၊ ယင်းအနက် ၅၇၇ ဦးမှာ အမျိုးသားဖြစ်သည်။")
-st.markdown("""
-    - **ယခုလေ့ကျင့်ခန်းမှာ** ခရီးသည်များ၏ *အမျိုးအစား*၊ *အသက်အုပ်စု* နှင့် *အသက်ရှင်/သေဆုံးမှု* အခြေအနေများကို သုံးသပ်သွားမှာ ဖြစ်ပါတယ်။
-""")
+
 #--------------------------------------------------------------------------------------#
 # add one blank line here
 st.text("")  # Blank line
@@ -32,7 +35,14 @@ st.text("")  # Blank line
 st.text("")  # Blank line
 #--------------------------------------------------------------------------------------#
 total_passengers_sex= df.Sex.value_counts() # prepare passenger table
-st.markdown("##### Total Passengers by Gender") #show subtitle
+st.markdown("#### Total Passengers by Gender") #show subtitle
+st.markdown("""
+    ##### 💡 Idea  
+    - ခရီးသွား အမျိုးသား၊ အမျိုးသမီး အရေအတွက်ကို အချက်အလက်အားဖြင့် ဒေါင်းလုတ်ချနိုင်ရန် ဘယ်ဘက်တွင် ဇယားဖြင့် ဖော်ပြထားပြီးတော့၊  
+    - အချက်အလက်ကို အလွယ်မြင်သာစေရန် ညာဘက်တွင် Bar Chart ဖြင့်​ဖော်ပြကြမယ်။
+""")
+st.text("")  # Blank line
+
 col01, col02 = st.columns(2) # to defind columns
 with col01:
     st.markdown("**Count of Passengers**") #show subtitle
@@ -58,7 +68,12 @@ st.text("")  # Blank line
 survived_status = df['Survived'].value_counts() # Prepare data
 
 # Subtitle
-st.markdown("##### Survived and Not-Survived Passengers")
+st.markdown("#### Survived and Not-Survived Passengers")
+st.markdown("""
+    ##### 💡 Idea  
+    - အသက်ရှင်သန်ကျန်ရစ်သူ စာရင်းကို ကျား၊မ အလိုက်ဖော်ပြခြင်းဖြင့် အလွယ်တကူနှိုင်းယှဉ်နိုင်နိုင်အောင်ပြင်ဆင်မယ်။ 
+    - ဒီတစ်ခါ အခြေခံ Pie chart လေးကို ရိုးရှင်းစွာထည့်မယ်။
+""")
 # Columns
 col1, col2 = st.columns(2)
 # Styled box (left side)
@@ -74,3 +89,4 @@ with col2:
     st.pyplot(fig)
 st.text("-------------------------------------------------------------------------------")  # add a line
 #--------------------------------------------------------------------------------------#
+st.markdown("#### နောက်ရက်များမှာ ဆက်လက် လေ့လာကြရင်း အဆင့်မြှင့်ကြမယ်နော် Bye!")

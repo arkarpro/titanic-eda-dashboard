@@ -2,7 +2,7 @@
 
 ## 🚀 Live Dashboard  
 Explore the live Streamlit app here:  
-👉 [Titanic EDA Dashboard](https://titanic-eda-dashboard-6vgcwoswaz2eofr2brspvf.streamlit.app/)
+👉 [Titanic EDA Dashboard](https://titanic-eda-dashboard-dkd68fsawayaumwjkkow85.streamlit.app/)
 
 This project is a simple yet insightful **Exploratory Data Analysis (EDA)** dashboard built with **Streamlit**, using the famous Titanic dataset.
 

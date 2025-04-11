@@ -2,8 +2,13 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 #--------------------------------------------------------------------------------------#
-# Load CSV
-df = pd.read_csv("https://raw.githubusercontent.com/arkarpro/titanic-eda-dashboard/refs/heads/main/Titanic.csv")
+# Load CSV with caching and loading spinner
+@st.cache_data
+def load_data():
+    return pd.read_csv("https://raw.githubusercontent.com/arkarpro/titanic-eda-dashboard/main/Titanic.csv")
+
+with st.spinner("🔄 Loading data... Please wait."):
+    df = load_data()
 #--------------------------------------------------------------------------------------#
 # Dashboard Title
 st.markdown(

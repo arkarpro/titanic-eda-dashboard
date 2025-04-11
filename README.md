@@ -2,7 +2,7 @@
 
 ## 🚀 Live Dashboard  
 Explore the live Streamlit app here:  
-👉 [Titanic EDA Dashboard]([https://titanic-eda-dashboard-6vgcwoswaz2eofr2brspvf.streamlit.app/](https://titanic-eda-dashboard-dkd68fsawayaumwjkkow85.streamlit.app/?fbclid=IwY2xjawJlmclleHRuA2FlbQIxMAABHpDYBnmPqNAD63J1htYks8stymTxtOJPMKKR4mAeGWZf1kjZyRm4KfVy4zmK_aem_mOc1HA5OQbfSt60Cpda9BA#survived-and-not-survived-passengers))
+👉 [Titanic EDA Dashboard]([https://titanic-eda-dashboard-6vgcwoswaz2eofr2brspvf.streamlit.app/])
 
 This project is a simple yet insightful **Exploratory Data Analysis (EDA)** dashboard built with **Streamlit**, using the famous Titanic dataset.
 

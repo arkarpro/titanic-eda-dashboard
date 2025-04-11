@@ -94,4 +94,70 @@ with col2:
     st.pyplot(fig)
 st.text("-------------------------------------------------------------------------------")  # add a line
 #--------------------------------------------------------------------------------------#
-st.markdown("#### နောက်ရက်များမှာ ဆက်လက် လေ့လာကြရင်း အဆင့်မြှင့်ကြမယ်နော် Bye!")
+st.markdown("#### Survived Passengers by Class and Gender")
+st.info("အသက်ရှင်သန်ကျန်ရစ်သော အမျိုးသား၊ အမျိုးသမီးများ P Class အလိုက် Bar Chart နဲ့ ဖန်တီးကြည့်ကြမယ်")
+st.markdown("""
+    ##### 💡 Idea  
+    -  အသက်ရှင်သော အမျိုးသာနှင့် အမျိုးသမီးများကို အလွယ်တကူ မြင်နိုင်စေရန်နှင့်
+    - P Class အလိုက်  Safety ဖြစ်မှုသည် ဆက်စပ်မှုရှိနိုင်မလားဆိုတာကို စဉ်းစားနိုင်ရန် ကြည့်ကြမယ်
+""")
+st.info("အရင်ဆုံး ကျား၊မ အရေအတွက်ကို P Class အလိုက် အရင်ဖော်ပြထားမယ်  ဒါမှ အောက်မှာ ဖော်ပြတဲ့ chart နဲ့ နိုင်းယှဉ်ပြီး အသက်ရှင်သူ vs စုစုပေါင်းလိုက်ပါလာသူ ပိုမြင်သိနိုင်မယ်။ ")
+summary_sex_by_class = pd.crosstab(df["Pclass"],df["Sex"], margins = True) # crosstab ကိုသုံးမယ်
+st.markdown("**Count gender by Class**")
+st.dataframe(summary_sex_by_class, width=800) #ဇယားဖြင့်ဖော်ပြရန်, ဇယားအကျယ်ကို ချိန်ညှိရန်
+
+s_df = df[df["Survived"] == 1]  # အသက်ရှင်သူများကို စစ်ထုတ်မယ်
+counts = s_df.groupby(["Pclass", "Sex"]).size().unstack() # Pclass နဲ့ Sex အလိုက် ရေတွက်မယ်
+
+
+fig, ax = plt.subplots() # Matplotlib နဲ့  count bar chart တစ်ခုရေး
+counts.plot(kind="bar", ax=ax)  # counts ဟာ DataFrame ဖြစ်လို့ direct bar plot နဲ့ဖော်ပြလို့ရတယ်
+
+ax.set_title("Survived Passengers by Class and Gender") #title လေးထည့်မယ်
+ax.set_xlabel("Passenger Class")   # xlable လေးထည့်ကြည့်မယ်
+ax.set_ylabel("Count")             # ylable လေးထည့်မယ်
+ax.legend(title="Sex")             # အညွှန်းလေးတပ်မယ်
+
+# Streamlit မှာ ပြ
+st.pyplot(fig)
+st.text("-------------------------------------------------------------------------------")  # add a line
+#--------------------------------------------------------------------------------------#
+st.markdown("#### Age Distribution")
+st.info("Historam  လေးနဲ့ ခရီးသည်များရဲ့ အသက်ကို ခွဲခြမ်းစိတ်ဖြာကြည့်ကြမယ်")
+st.markdown("""
+    ##### 💡 Idea  
+    -  ခရီးသည်များရဲ့ အသက်များကို အသက်အုပ်စုခွဲပြီး ကြည့်လိုက်မယ်ဆိုရင် ဘယ်အရွယ်တွေပိုများလဲဆိုတာ chart မှာချက်ချင်းသိနိုင်မယ်၊ ဂဏန်းတွေဖက်ရင် သိဖို့အချိန်ပိုယူရနိုင်တယ်
+    -  Presentation များလုပ်တဲ့အခါ သူ့ကို အရင်ထားပြီး၊မိတ်ဆက်ပါ၊ လေ့ကျင့်ခန်းမှာတော့ ဒါကိုဖန်တီးရတာ စဉ်းစားစရာများတော့ အလေ့အကျင့်ရလာမှ လုပ်ဖြစ်တာပိုကောင်းမယ်
+""")
+import numpy as np
+# Create a new figure before plotting
+fig, ax = plt.subplots()
+# Plot histogram
+counts, bins, _ = ax.hist(df.Age.dropna(), bins=20, color="yellow", edgecolor="red", label="Age bins")
+# Calculate bin centers and plot line
+bin_centers = (bins[:-1] + bins[1:]) / 2
+ax.plot(bin_centers, counts, marker="o", color="r", label="Age Distribution")
+# Customizing the plot
+ax.set_xticks(np.arange(0, 84, 4))
+ax.set_title("Age Distribution")
+ax.set_xlabel("Age")
+ax.set_ylabel("Frequency")
+ax.legend()
+st.pyplot(fig) # Show the plot in Streamlit
+st.text("-------------------------------------------------------------------------------")  # add a line
+#--------------------------------------------------------------------------------------#
+st.markdown("""
+#### 🧠 ဒီ Dashboard လေးက သာမန် Python လေ့ကျင့်ခန်းထက်ပိုပြီး  
+Data Analysis နဲ့ Visualization ကို တကယ်တမ်းသုံးဖို့အတွက် အထောက်အကူဖြစ်ပါတယ်။  
+
+📌 ကိုယ်ပိုင်စိတ်ကူးတွေနဲ့ dataset အသစ်တွေနဲ့ ပြန်လုပ်ကြည့်တာက  
+နောက်ထပ်အသစ်တွေကို သင်ယူဖို့အတွက် အရမ်းအရေးကြီးပါတယ်။  
+
+📥 သင်ကိုယ်တိုင် လေ့ကျင့်ဖို့:  
+➡️ [Download Titanic.csv](https://raw.githubusercontent.com/arkarpro/titanic-eda-dashboard/main/Titanic.csv)  
+➡️ [Download app.py](https://raw.githubusercontent.com/arkarpro/titanic-eda-dashboard/main/app.py)  
+
+🤝 အတူတကွ သင်ယူကြရအောင် –  
+➡️ [GitHub - Arkar](https://github.com/arkarpro)  
+➡️ [LinkedIn - Arkar](https://www.linkedin.com/in/arkar-linn-datapro/)
+""")
